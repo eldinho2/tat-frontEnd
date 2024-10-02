@@ -1,60 +1,46 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import Image from "next/image"
+import Link from "next/link"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
+import { useEffect, useState } from "react"
 
 export default function TranslatorLandingPage() {
-  const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 to-white text-black">
       <header className="fixed w-full px-4 lg:px-6 h-16 flex items-center bg-white/80 backdrop-blur-md z-50 transition-all duration-300 ease-in-out shadow-md">
         <Link className="flex items-center justify-center" href="#">
           <MountainIcon className="h-8 w-8 text-blue-600" />
-          <span className="ml-2 text-xl font-bold text-blue-600">
-            Tradutor Instantâneo
-          </span>
+          <span className="ml-2 text-xl font-bold text-blue-600">Tradutor Instantâneo</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#features"
-          >
+          <Link className="text-sm font-medium hover:text-blue-600 transition-colors" href="#features">
             Recursos
           </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#demo"
-          >
+          <Link className="text-sm font-medium hover:text-blue-600 transition-colors" href="#demo">
             Demonstração
           </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#pricing"
-          >
+          <Link className="text-sm font-medium hover:text-blue-600 transition-colors" href="#pricing">
             Preços
           </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#contact"
-          >
+          <Link className="text-sm font-medium hover:text-blue-600 transition-colors" href="#contact">
             Contato
           </Link>
         </nav>
       </header>
       <main className="flex-1 pt-16">
         <section className="relative w-full py-24 md:py-32 lg:py-48 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center"
+          <div 
+            className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center"
             style={{
               transform: `translateY(${scrollY * 0.5}px)`,
             }}
@@ -66,13 +52,12 @@ export default function TranslatorLandingPage() {
                 Traduza enquanto você digita
               </h1>
               <p className="max-w-[600px] mx-auto text-xl text-blue-100 mb-8">
-                Tradutor desktop revoluciona a forma como você trabalha com
-                idiomas. Tradução instantânea com apenas um atalho de teclado.
+                Nosso tradutor desktop revoluciona a forma como você trabalha com idiomas. Tradução instantânea com
+                apenas um atalho de teclado.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="bg-white text-blue-600 hover:bg-blue-50 transition-colors text-lg px-8 py-3 flex items-center justify-center">
-                  <WindowsIcon className="w-6 h-6 mr-2" />
-                  Download para Windows
+                <Button className="bg-white text-blue-600 hover:bg-blue-50 transition-colors text-lg px-8 py-3">
+                  Experimente Grátis
                 </Button>
                 <Button className="bg-blue-500 text-white hover:bg-blue-400 transition-colors text-lg px-8 py-3">
                   Saiba Mais
@@ -89,41 +74,29 @@ export default function TranslatorLandingPage() {
             <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
               <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 <KeyboardIcon className="h-12 w-12 text-blue-600" />
-                <h3 className="text-xl font-bold text-blue-600 text-center">
-                  Tradução com Atalhos
-                </h3>
+                <h3 className="text-xl font-bold text-blue-600 text-center">Tradução com Atalhos</h3>
                 <p className="text-gray-600 text-center">
-                  Use Ctrl+A para copiar e Ctrl+Shift+T para traduzir
-                  instantaneamente.
+                  Use Ctrl+A para copiar e Ctrl+Shift+T para traduzir instantaneamente.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 <ClipboardIcon className="h-12 w-12 text-blue-600" />
-                <h3 className="text-xl font-bold text-blue-600 text-center">
-                  Integração com Clipboard
-                </h3>
+                <h3 className="text-xl font-bold text-blue-600 text-center">Integração com Clipboard</h3>
                 <p className="text-gray-600 text-center">
-                  Tradução automática enviada diretamente para sua área de
-                  transferência.
+                  Tradução automática enviada diretamente para sua área de transferência.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 <SettingsIcon className="h-12 w-12 text-blue-600" />
-                <h3 className="text-xl font-bold text-blue-600 text-center">
-                  Personalizável
-                </h3>
+                <h3 className="text-xl font-bold text-blue-600 text-center">Personalizável</h3>
                 <p className="text-gray-600 text-center">
-                  Configure idiomas, modo escuro e mecanismo de tradução
-                  conforme sua preferência.
+                  Configure idiomas, modo escuro e mecanismo de tradução conforme sua preferência.
                 </p>
               </div>
             </div>
           </div>
         </section>
-        <section
-          id="demo"
-          className="w-full py-24 bg-gradient-to-b from-blue-50 to-white"
-        >
+        <section id="demo" className="w-full py-24 bg-gradient-to-b from-blue-50 to-white">
           <div className="px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-blue-600">
               Veja como funciona
@@ -140,8 +113,7 @@ export default function TranslatorLandingPage() {
               </div>
             </div>
             <p className="mt-8 text-center text-xl text-gray-600">
-              Tradução instantânea enquanto você digita. Simples, rápido e
-              eficiente.
+              Tradução instantânea enquanto você digita. Simples, rápido e eficiente.
             </p>
           </div>
         </section>
@@ -173,22 +145,15 @@ export default function TranslatorLandingPage() {
             </p>
           </div>
         </section>
-        <section
-          id="pricing"
-          className="w-full py-24 bg-gradient-to-b from-blue-50 to-white"
-        >
+        <section id="pricing" className="w-full py-24 bg-gradient-to-b from-blue-50 to-white">
           <div className="px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-blue-600">
               Planos e Preços
             </h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch max-w-5xl mx-auto">
               <div className="flex flex-col p-8 bg-white rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">
-                  Básico
-                </h3>
-                <div className="text-center text-4xl font-bold mb-6 text-black">
-                  R$19,90<span className="text-sm font-normal">/mês</span>
-                </div>
+                <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">Básico</h3>
+                <div className="text-center text-4xl font-bold mb-6 text-black">R$19,90<span className="text-sm font-normal">/mês</span></div>
                 <ul className="mb-8 space-y-4 flex-grow">
                   <li className="flex items-center text-gray-600">
                     <CheckIcon className="text-green-500 mr-2" />
@@ -199,17 +164,11 @@ export default function TranslatorLandingPage() {
                     Suporte por email
                   </li>
                 </ul>
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">
-                  Escolher Plano
-                </Button>
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">Escolher Plano</Button>
               </div>
               <div className="flex flex-col p-8 bg-white rounded-xl shadow-xl border-2 border-blue-600 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">
-                  Pro
-                </h3>
-                <div className="text-center text-4xl font-bold mb-6 text-black">
-                  R$39,90<span className="text-sm font-normal">/mês</span>
-                </div>
+                <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">Pro</h3>
+                <div className="text-center text-4xl font-bold mb-6 text-black">R$39,90<span className="text-sm font-normal">/mês</span></div>
                 <ul className="mb-8 space-y-4 flex-grow">
                   <li className="flex items-center text-gray-600">
                     <CheckIcon className="text-green-500 mr-2" />
@@ -224,17 +183,11 @@ export default function TranslatorLandingPage() {
                     Acesso a recursos avançados
                   </li>
                 </ul>
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">
-                  Escolher Plano
-                </Button>
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">Escolher Plano</Button>
               </div>
               <div className="flex flex-col p-8 bg-white rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">
-                  Empresarial
-                </h3>
-                <div className="text-center text-4xl font-bold mb-6 text-black">
-                  Personalizado
-                </div>
+                <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">Empresarial</h3>
+                <div className="text-center text-4xl font-bold mb-6 text-black">Personalizado</div>
                 <ul className="mb-8 space-y-4 flex-grow">
                   <li className="flex items-center text-gray-600">
                     <CheckIcon className="text-green-500 mr-2" />
@@ -249,15 +202,13 @@ export default function TranslatorLandingPage() {
                     Integração com sistemas existentes
                   </li>
                 </ul>
-                <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">
-                  Contate-nos
-                </Button>
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">Contate-nos</Button>
               </div>
             </div>
           </div>
         </section>
         <section id="contact" className="relative w-full py-24 overflow-hidden">
-          <div
+          <div 
             className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center"
             style={{
               transform: `translateY(${(scrollY - 4000) * 0.5}px)`,
@@ -270,21 +221,12 @@ export default function TranslatorLandingPage() {
             </h2>
             <form className="max-w-md mx-auto space-y-6">
               <Input placeholder="Nome" className="bg-white/90 border-white" />
-              <Input
-                type="email"
-                placeholder="Email"
-                className="bg-white/90 border-white"
-              />
+              <Input type="email" placeholder="Email" className="bg-white/90 border-white" />
               <textarea
                 className="w-full h-32 px-3 py-2 text-black bg-white/90 border-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Mensagem"
               ></textarea>
-              <Button
-                type="submit"
-                className="w-full bg-white text-blue-600 hover:bg-blue-50 transition-colors text-lg py-3"
-              >
-                Enviar Mensagem
-              </Button>
+              <Button type="submit" className="w-full bg-white text-blue-600 hover:bg-blue-50 transition-colors text-lg py-3">Enviar Mensagem</Button>
             </form>
           </div>
         </section>
@@ -292,20 +234,12 @@ export default function TranslatorLandingPage() {
       <footer className="bg-white py-8 border-t">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600 mb-4 md:mb-0">
-              © 2024 TaT Todos os direitos reservados.
-            </p>
+            <p className="text-sm text-gray-600 mb-4 md:mb-0">© 2024 TaT Todos os direitos reservados.</p>
             <nav className="flex gap-6">
-              <Link
-                className="text-sm hover:text-blue-600 transition-colors"
-                href="#"
-              >
+              <Link className="text-sm hover:text-blue-600 transition-colors" href="#">
                 Termos de Serviço
               </Link>
-              <Link
-                className="text-sm hover:text-blue-600 transition-colors"
-                href="#"
-              >
+              <Link className="text-sm hover:text-blue-600 transition-colors" href="#">
                 Privacidade
               </Link>
             </nav>
@@ -313,126 +247,5 @@ export default function TranslatorLandingPage() {
         </div>
       </footer>
     </div>
-  );
-}
-
-function WindowsIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
-    </svg>
   )
-}
-
-function CheckIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-function ClipboardIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLin
-      ejoin="round"
-    >
-      <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-    </svg>
-  );
-}
-
-function KeyboardIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect width="20" height="16" x="2" y="4" rx="2" ry="2" />
-      <path d="M6 8h.001" />
-      <path d="M10 8h.001" />
-      <path d="M14 8h.001" />
-      <path d="M18 8h.001" />
-      <path d="M8 12h.001" />
-      <path d="M12 12h.001" />
-      <path d="M16 12h.001" />
-      <path d="M7 16h10" />
-    </svg>
-  );
-}
-
-function MountainIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
-  );
-}
-
-function SettingsIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  );
 }
