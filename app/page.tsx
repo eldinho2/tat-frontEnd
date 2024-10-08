@@ -18,17 +18,23 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
+interface Session {
+  user: {
+    email: string;
+  };
+}
+
 export default function TranslatorLandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [lang, setLang] = useState('pt-BR');
-  const [session, setSession] = useState(null);
+  const [, setSession] = useState<Session | null>(null);
 
   useEffect(() => {
     let isMounted = true;
 
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (isMounted) {
-        setSession(session as any);
+        setSession(session as Session);
         const user = await getUser(session?.user.email ?? '');
 
         if (session) {
