@@ -99,7 +99,7 @@ export default function CheckoutPage() {
     supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'http://localhost:3000/checkout',
+        redirectTo: 'https://tat-dev.vercel.app/checkout',
       },
     });
   };
