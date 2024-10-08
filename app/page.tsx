@@ -6,9 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { MountainIcon, WindowsIcon, KeyboardIcon, ClipboardIcon, SettingsIcon } from "./utils/icons";
-import { BrazilianPlans, InternationalPlans } from "./components/PlansComponent";
+import { PlansComponent } from "./components/PlansComponent";
 import { motion } from "framer-motion";
 import { translations } from "./translations";
+import { supabase } from "@/lib/supabaseClient";
+import { getUser, loginAfterOAuth } from "@/lib/authApi";
 
 
 const fadeInUp = {
@@ -16,14 +18,41 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
+interface Session {
+  user: {
+    email: string;
+  };
+}
+
 export default function TranslatorLandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [lang, setLang] = useState('pt-BR');
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
+      if (isMounted) {
+        setSession(session as any);
+        const user = await getUser(session?.user.email ?? '');
+
+        if (session) {
+          if (user === false && session?.user.email) {
+            loginAfterOAuth(session.user.email);
+          }
+        }
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     const lang = navigator.language || 'pt-BR';
     setLang(lang);
-    console.log(lang);
   }, []);
 
   const t = translations[lang as keyof typeof translations] || translations.en;
@@ -243,7 +272,7 @@ export default function TranslatorLandingPage() {
           className="w-full py-24 bg-gradient-to-b from-blue-50 to-white"
         >
           <div className="flex flex-col items-center justify-center gap-4 max-w-5xl mx-auto px-4 md:px-6">
-          {lang === 'pt-BR' ? <BrazilianPlans /> : <InternationalPlans />}
+          <PlansComponent lang={lang} />
           </div>
         </section>
         <section id="contact" className="relative w-full py-24 overflow-hidden">

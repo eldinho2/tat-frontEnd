@@ -21,6 +21,47 @@ export const translations = {
     interfaceDescription: "Design moderno e funcional, com suporte para modo claro e escuro.",
     contactTitle: "Entre em Contato",
     sendMessage: "Enviar Mensagem",
+    checkout: {
+      title: "Finalizar Compra",
+      description: "Logado como: ",
+      alert: {
+        title: "Pagamento Único",
+        description: "Todos os preços são para um pagamento único. Sem taxas mensais ou anuais!",
+      },
+      selectYourPlan: "Selecione seu Plano",
+      paymentMethod: "Método de Pagamento",
+      resumeOrder: "Resumo do Pedido",
+      uniquePayment: "Pagamento Único",
+      confirmPurchase: "Confirmar Compra",
+    },
+    plans: {
+      title: "Planos e Preços",
+      choosePlan: "Escolha um plano",
+      free: "Gratuito",
+      plus: "Plus",
+      pro: "Pro",
+      price: {
+        free: "R$00,00",
+        plus: "R$00,00",
+        pro: "R$00,00",
+      },
+      freeFeatures: {
+        unlimitedTranslations: "Até 5 traduções por hora",
+        prioritySupport: "Suporte prioritário",
+        advancedFeatures: "Recursos avançados",
+        checkout: "Experimente grátis",
+      },
+      proFeatures: {
+        unlimitedTranslations: "Até 5 traduções por hora",
+        prioritySupport: "Suporte prioritário",
+        advancedFeatures: "Recursos avançados",
+      },
+      plusFeatures: {
+        unlimitedTranslations: "Até 5 traduções por hora",
+        prioritySupport: "Suporte prioritário",
+        advancedFeatures: "Recursos avançados",
+      }
+    }
   },
   en: {
     features: "Features",
@@ -44,5 +85,46 @@ export const translations = {
     interfaceDescription: "Modern and functional design, with support for light and dark mode.",
     contactTitle: "Get in Touch",
     sendMessage: "Send Message",
+    checkout: {
+      title: "Checkout",
+      description: "Logged in as: ",
+      alert: {
+        title: "One-Time Payment",
+        description: "All prices are for a one-time payment. No monthly or annual fees!",
+      },
+      selectYourPlan: "Select your plan",
+      paymentMethod: "Payment Method",
+      resumeOrder: "Order Summary",
+      uniquePayment: "One-Time Payment",
+      confirmPurchase: "Confirm Purchase",
+    },
+    plans: {
+      title: "Plans and Prices",
+      choosePlan: "Choose a plan",
+      free: "Free",
+      plus: "Plus",
+      pro: "Pro",
+      price: {
+        free: "$00.00",
+        pro: "$00.00",
+        plus: "$00.00",
+      },
+      freeFeatures: {
+        unlimitedTranslations: "Up to 5 translations per hour",
+        prioritySupport: "Priority support",
+        advancedFeatures: "Advanced features",
+        checkout: "Try for free",
+      },
+      proFeatures: {
+        unlimitedTranslations: "Unlimited translations",
+        prioritySupport: "Priority support",
+        advancedFeatures: "Advanced features",
+      },
+      plusFeatures: {
+        unlimitedTranslations: "Unlimited translations",
+        prioritySupport: "Priority support",
+        advancedFeatures: "Advanced features",
+      },
+    }
   }
 };
