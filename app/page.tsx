@@ -18,10 +18,16 @@ const fadeInUp = {
 
 export default function TranslatorLandingPage() {
   const [scrollY, setScrollY] = useState(0);
-  const [enCurrency, setEnCurrency] = useState(false);
-  const lang = navigator.language || 'pt-BR'
-  console.log(lang);
+  const [lang, setLang] = useState(navigator.language || 'pt-BR');
+  
+  useEffect(() => {
+    const lang = navigator.language || 'pt-BR'
+    setLang(lang);
+    console.log(lang);
+  }, []);
+
   const t = translations[lang as keyof typeof translations] || translations.en;
+
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
