@@ -18,16 +18,10 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-interface Session {
-  user: {
-    email: string;
-  };
-}
-
 export default function TranslatorLandingPage() {
   const [scrollY, setScrollY] = useState(0);
   const [lang, setLang] = useState('pt-BR');
-  const [session, setSession] = useState<Session | null>(null);
+  const [session, setSession] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
