@@ -25,7 +25,7 @@ import {
   AlertTitle,
   AlertDescription,
 } from "@/components/ui/alert";
-import { CreditCard, Banknote, QrCode, CheckIcon, AlertCircle, MountainIcon } from "lucide-react";
+import { CreditCard, Banknote, CheckIcon, AlertCircle, MountainIcon } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 import { translations } from "@/app/translations";
 import { useRouter } from "next/navigation";
@@ -79,6 +79,7 @@ export default function CheckoutPage() {
       price: t.plans.price.plus,
       features: [
         t.plans.plusFeatures.unlimitedTranslations,
+        t.plans.plusFeatures.aiTranslation,
         t.plans.plusFeatures.prioritySupport,
         t.plans.plusFeatures.advancedFeatures,
       ],
@@ -89,7 +90,6 @@ export default function CheckoutPage() {
       features: [
         t.plans.proFeatures.unlimitedTranslations,
         t.plans.proFeatures.prioritySupport,
-        t.plans.proFeatures.advancedFeatures,
       ],
     },
   };
@@ -171,13 +171,6 @@ export default function CheckoutPage() {
             <><h3 className="text-2xl font-bold mb-4 text-blue-600">
                 {t.checkout.paymentMethod}
               </h3><RadioGroup defaultValue="pix">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="pix" id="pix" />
-                    <Label htmlFor="pix" className="flex items-center space-x-2">
-                      <QrCode className="h-4 w-4" />
-                      <span>Pix</span>
-                    </Label>
-                  </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="card" id="card" />
                     <Label htmlFor="card" className="flex items-center space-x-2">

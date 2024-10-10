@@ -119,10 +119,6 @@ export function PlansComponent({ lang }: { lang: string }) {
             </li>
             <li className="flex items-center text-gray-600">
               <CheckIcon className="text-green-500 mr-2" />
-              {t.plans.proFeatures.advancedFeatures}
-            </li>
-            <li className="flex items-center text-gray-600">
-              <CheckIcon className="text-green-500 mr-2" />
               {t.plans.proFeatures.prioritySupport}
             </li>
           </ul>

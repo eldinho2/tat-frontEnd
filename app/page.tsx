@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { WindowsIcon, KeyboardIcon, ClipboardIcon, SettingsIcon } from "./utils/icons";
+import { Brain } from "lucide-react";
 import { PlansComponent } from "./components/PlansComponent";
 import { motion } from "framer-motion";
 import { translations } from "./translations";
@@ -147,6 +148,15 @@ export default function TranslatorLandingPage() {
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+                <Brain className="h-12 w-12 text-blue-600" />
+                <h3 className="text-xl font-bold text-blue-600 text-center">
+                  {t.featuresAi}
+                </h3>
+                <p className="text-gray-600 text-center">
+                  {t.featuresAiDescription}
+                </p>
+              </div>
+              <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
                 <ClipboardIcon className="h-12 w-12 text-blue-600" />
                 <h3 className="text-xl font-bold text-blue-600 text-center">
                   {t.featuresClipboard}
@@ -155,7 +165,7 @@ export default function TranslatorLandingPage() {
                   {t.featuresClipboardDescription}
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+              <div className="flex flex-col items-center space-y-4 p-6 rounded-xl bg-blue-50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 lg:col-span-3">
                 <SettingsIcon className="h-12 w-12 text-blue-600" />
                 <h3 className="text-xl font-bold text-blue-600 text-center">
                   {t.featuresCustomizable}

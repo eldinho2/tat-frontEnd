@@ -11,6 +11,8 @@ export const translations = {
     featuresTitle: "Recursos Principais",
     featuresKeyboard: "Tradução com Atalhos",
     featuresKeyboardDescription: "Use Ctrl+A para copiar e Ctrl+Shift+T para traduzir instantaneamente.",
+    featuresAi: "Tradução com IA",
+    featuresAiDescription: "Tradução com contexto aprimorado por IA 🤖",
     featuresClipboard: "Integração com Área de Transferência",
     featuresClipboardDescription: "Tradução automática enviada diretamente para sua área de transferência.",
     featuresCustomizable: "Personalizável",
@@ -54,7 +56,6 @@ export const translations = {
       proFeatures: {
         unlimitedTranslations: "Traduções ilimitadas",
         prioritySupport: "Suporte prioritário",
-        advancedFeatures: "Recursos avançados",
       },
       plusFeatures: {
         unlimitedTranslations: "Traduções ilimitadas",
@@ -76,6 +77,8 @@ export const translations = {
     featuresTitle: "Key Features",
     featuresKeyboard: "Translation with Shortcuts",
     featuresKeyboardDescription: "Use Ctrl+A to copy and Ctrl+Shift+T to translate instantly.",
+    featuresAi: "Translation with AI",
+    featuresAiDescription: "Improved AI translation with context 🤖",
     featuresClipboard: "Clipboard Integration",
     featuresClipboardDescription: "Automatic translation sent directly to your clipboard.",
     featuresCustomizable: "Customizable",
@@ -119,7 +122,6 @@ export const translations = {
       proFeatures: {
         unlimitedTranslations: "Unlimited translations",
         prioritySupport: "Priority support",
-        advancedFeatures: "Advanced features",
       },
       plusFeatures: {
         unlimitedTranslations: "Unlimited translations",
