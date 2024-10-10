@@ -8,7 +8,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    console.log('Corpo da requisição:', req.body);
     const { testeId, product } = req.body;
 
     let priceId;
@@ -24,8 +23,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!priceId) {
       throw new Error('ID do preço não definido para o produto');
     }
-
-    console.log('Criando sessão de checkout com priceId:', priceId);
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card', 'boleto'],
