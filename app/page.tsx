@@ -5,12 +5,13 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { MountainIcon, WindowsIcon, KeyboardIcon, ClipboardIcon, SettingsIcon } from "./utils/icons";
+import { WindowsIcon, KeyboardIcon, ClipboardIcon, SettingsIcon } from "./utils/icons";
 import { PlansComponent } from "./components/PlansComponent";
 import { motion } from "framer-motion";
 import { translations } from "./translations";
 import { supabase } from "@/lib/supabaseClient";
 import { getUser, loginAfterOAuth } from "@/lib/authApi";
+import { Header } from "./components/Header";
 
 
 const fadeInUp = {
@@ -65,44 +66,7 @@ export default function TranslatorLandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 to-white text-black">
-      <motion.header
-        className="fixed w-full px-4 lg:px-6 h-16 flex items-center bg-white/80 backdrop-blur-md z-50 transition-all duration-300 ease-in-out shadow-md"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={fadeInUp}
-      >
-        <Link className="flex items-center justify-center" href="#">
-          <MountainIcon className="h-8 w-8 text-blue-600" />
-          <span className="ml-2 text-xl font-bold text-blue-600">Tat.dev</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#features"
-          >
-            {t.features}
-          </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#demo"
-          >
-            {t.demo}
-          </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#pricing"
-          >
-            {t.pricing}
-          </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600 transition-colors"
-            href="#contact"
-          >
-            {t.contact}
-          </Link>
-        </nav>
-      </motion.header>
+      <Header />
       <main className="flex-1 pt-16">
         <motion.section
           className="relative w-full py-24 md:py-32 lg:py-48 overflow-hidden"
