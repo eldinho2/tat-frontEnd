@@ -52,7 +52,6 @@ export function PlansComponent({ lang }: { lang: string }) {
       animate="visible"
       variants={containerVariants}
     >
-      <p>{session?.user?.email}</p>
       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-blue-600">
         {t.plans.title}
       </h2>
@@ -61,17 +60,14 @@ export function PlansComponent({ lang }: { lang: string }) {
           <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">
             {t.plans.free}
           </h3>
-          <div className="text-center text-4xl font-bold mb-6 text-black">
-            {t.plans.price.free}<span className="text-sm font-normal">/mês</span>
+          <div className="text-center text-4xl font-bold mb-2 text-black">
+            {t.plans.price.free}
           </div>
+          <span className="text-sm font-normal text-center py-4">{t.checkout.uniquePayment}</span>
           <ul className="mb-8 space-y-4 flex-grow">
             <li className="flex items-center text-gray-600">
               <CheckIcon className="text-green-500 mr-2" />
               {t.plans.freeFeatures.unlimitedTranslations}
-            </li>
-            <li className="flex items-center text-gray-600">
-              <CheckIcon className="text-green-500 mr-2" />
-              {t.plans.freeFeatures.prioritySupport}
             </li>
           </ul>
           <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">
@@ -82,13 +78,18 @@ export function PlansComponent({ lang }: { lang: string }) {
           <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">
             {t.plans.plus}
           </h3>
-          <div className="text-center text-4xl font-bold mb-6 text-black">
-            {t.plans.price.plus}<span className="text-sm font-normal">/mês</span>
+          <div className="text-center text-4xl font-bold mb-2 text-black">
+            {t.plans.price.plus}
           </div>
+          <span className="text-sm font-normal text-center py-4">{t.checkout.uniquePayment}</span>
           <ul className="mb-8 space-y-4 flex-grow">
             <li className="flex items-center text-gray-600">
               <CheckIcon className="text-green-500 mr-2" />
               {t.plans.plusFeatures.unlimitedTranslations}
+            </li>
+            <li className="flex items-center text-gray-600">
+              <CheckIcon className="text-green-500 mr-2" />
+              {t.plans.plusFeatures.aiTranslation}
             </li>
             <li className="flex items-center text-gray-600">
               <CheckIcon className="text-green-500 mr-2" />
@@ -107,10 +108,15 @@ export function PlansComponent({ lang }: { lang: string }) {
           <h3 className="text-2xl font-bold text-center mb-4 text-blue-600">
             {t.plans.pro}
           </h3>
-          <div className="text-center text-4xl font-bold mb-6 text-black">
+          <div className="text-center text-4xl font-bold mb-2 text-black">
             {t.plans.price.pro}
           </div>
+          <span className="text-sm font-normal text-center py-4">{t.checkout.uniquePayment}</span>
           <ul className="mb-8 space-y-4 flex-grow">
+          <li className="flex items-center text-gray-600">
+              <CheckIcon className="text-green-500 mr-2" />
+              {t.plans.proFeatures.unlimitedTranslations}
+            </li>
             <li className="flex items-center text-gray-600">
               <CheckIcon className="text-green-500 mr-2" />
               {t.plans.proFeatures.advancedFeatures}
@@ -118,10 +124,6 @@ export function PlansComponent({ lang }: { lang: string }) {
             <li className="flex items-center text-gray-600">
               <CheckIcon className="text-green-500 mr-2" />
               {t.plans.proFeatures.prioritySupport}
-            </li>
-            <li className="flex items-center text-gray-600">
-              <CheckIcon className="text-green-500 mr-2" />
-              {t.plans.proFeatures.unlimitedTranslations}
             </li>
           </ul>
           <Button onClick={handleLogin} className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">

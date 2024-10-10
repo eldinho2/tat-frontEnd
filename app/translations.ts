@@ -42,8 +42,8 @@ export const translations = {
       pro: "Pro",
       price: {
         free: "R$00,00",
-        plus: "R$00,00",
-        pro: "R$00,00",
+        plus: "R$29,99",
+        pro: "R$19,99",
       },
       freeFeatures: {
         unlimitedTranslations: "Até 5 traduções por hora",
@@ -52,12 +52,13 @@ export const translations = {
         checkout: "Experimente grátis",
       },
       proFeatures: {
-        unlimitedTranslations: "Até 5 traduções por hora",
+        unlimitedTranslations: "Traduções ilimitadas",
         prioritySupport: "Suporte prioritário",
         advancedFeatures: "Recursos avançados",
       },
       plusFeatures: {
-        unlimitedTranslations: "Até 5 traduções por hora",
+        unlimitedTranslations: "Traduções ilimitadas",
+        aiTranslation: "Tradução com contexto aprimorado por IA 🤖",
         prioritySupport: "Suporte prioritário",
         advancedFeatures: "Recursos avançados",
       }
@@ -106,8 +107,8 @@ export const translations = {
       pro: "Pro",
       price: {
         free: "$00.00",
-        pro: "$00.00",
-        plus: "$00.00",
+        pro: "$5.00",
+        plus: "$10.00",
       },
       freeFeatures: {
         unlimitedTranslations: "Up to 5 translations per hour",
@@ -122,6 +123,7 @@ export const translations = {
       },
       plusFeatures: {
         unlimitedTranslations: "Unlimited translations",
+        aiTranslation: "Improved AI translation with context 🤖",
         prioritySupport: "Priority support",
         advancedFeatures: "Advanced features",
       },
