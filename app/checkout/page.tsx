@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -31,6 +30,8 @@ import { supabase } from "@/lib/supabaseClient";
 import { translations } from "@/app/translations";
 import { useRouter } from "next/navigation";
 import { Loader2, LogOut } from "lucide-react";
+import HandleStripePayment from "@/app/components/HandleStripePayment";
+import { getSession } from "@/lib/utils";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -59,7 +60,8 @@ export default function CheckoutPage() {
   const t = translations[lang as keyof typeof translations] || translations.en;
 
   useEffect(() => {
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
+    const checkSession = async () => {
+      const session = await getSession();
       setSession(session as Session | null);
       setTimeout(() => {
         setLoading(false);
@@ -67,7 +69,8 @@ export default function CheckoutPage() {
       if (!session?.user?.email) {
         router.push('/');
       }
-    });
+    }
+    checkSession()
   }, [router]);
 
   const plans = {
@@ -220,10 +223,13 @@ export default function CheckoutPage() {
             </div>
           </div>
         </CardContent>
-        <CardFooter>
-          <Button className="w-full bg-blue-600 text-white hover:bg-blue-500 transition-colors">
-            {t.checkout.confirmPurchase}
-          </Button>
+        <CardFooter className="flex justify-center items-center w-full">
+          <HandleStripePayment 
+            planId={selectedPlan} 
+            planName={plans[selectedPlan as keyof typeof plans].name} 
+            planPrice={parseFloat(plans[selectedPlan as keyof typeof plans].price)}
+            text={t.checkout.confirmPurchase}
+          />
         </CardFooter>
       </Card>
     </motion.div>

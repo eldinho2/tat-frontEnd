@@ -1,23 +1,46 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { CheckIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabaseClient";
 import { translations } from "@/app/translations";
+import { getSession } from '@/lib/utils';
+import { useEffect, useState } from "react";
+import { Session } from "@supabase/supabase-js";
+import { useRouter } from "next/navigation";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
+const test = process.env.NEXT_PUBLIC_TEST;
+
 export function PlansComponent({ lang }: { lang: string }) {
+  const [session, setSession] = useState<Session | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const session = await getSession();
+      setSession(session as Session | null);
+      console.log(session)
+    }
+    checkSession()
+  }, [])
 
   const handleLogin = () => {
-    supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: 'http://localhost:3000/checkout',
-      },
-    });
+    if (!session) {
+      supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: test === 'true' ? 'http://localhost:3000/checkout' : 'https://tat-dev.vercel.app/checkout',
+        },
+      });
+    } else {
+      router.push('/checkout');
+    }
   };
 
   const t = translations[lang as keyof typeof translations] || translations.en;
@@ -29,6 +52,7 @@ export function PlansComponent({ lang }: { lang: string }) {
       animate="visible"
       variants={containerVariants}
     >
+      <p>{session?.user?.email}</p>
       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12 text-blue-600">
         {t.plans.title}
       </h2>
