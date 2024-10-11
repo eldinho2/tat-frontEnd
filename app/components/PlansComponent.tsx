@@ -15,8 +15,6 @@ const containerVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
-const test = process.env.NEXT_PUBLIC_TEST;
-
 export function PlansComponent({ lang }: { lang: string }) {
   const [session, setSession] = useState<Session | null>(null);
   const router = useRouter();
@@ -25,7 +23,6 @@ export function PlansComponent({ lang }: { lang: string }) {
     const checkSession = async () => {
       const session = await getSession();
       setSession(session as Session | null);
-      console.log(session)
     }
     checkSession()
   }, [])
@@ -35,7 +32,7 @@ export function PlansComponent({ lang }: { lang: string }) {
       supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: test === 'true' ? 'http://localhost:3000/checkout' : 'https://tat-dev.vercel.app/checkout',
+          redirectTo: 'https://tat-dev.vercel.app/checkout',
         },
       });
     } else {
