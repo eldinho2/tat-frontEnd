@@ -25,10 +25,11 @@ export function PlansComponent({ lang }: { lang: string }) {
     const checkSession = async () => {
       const session = await getSession();
       setSession(session as Session | null);
-      console.log(session)
     }
     checkSession()
   }, [])
+
+  console.log(test)
 
   const handleLogin = () => {
     if (!session) {
