@@ -25,18 +25,17 @@ export function PlansComponent({ lang }: { lang: string }) {
     const checkSession = async () => {
       const session = await getSession();
       setSession(session as Session | null);
+      console.log(session)
     }
     checkSession()
   }, [])
-
-  console.log(test)
 
   const handleLogin = () => {
     if (!session) {
       supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: 'https://tat-dev.vercel.app/checkout',
+          redirectTo: test === 'true' ? 'http://localhost:3000/checkout' : 'https://tat-dev.vercel.app/checkout',
         },
       });
     } else {
