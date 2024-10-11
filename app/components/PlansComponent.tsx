@@ -36,7 +36,7 @@ export function PlansComponent({ lang }: { lang: string }) {
       supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: test === 'true' ? 'http://localhost:3000/checkout' : 'https://tat-dev.vercel.app/checkout',
+          redirectTo: 'https://tat-dev.vercel.app/checkout',
         },
       });
     } else {
